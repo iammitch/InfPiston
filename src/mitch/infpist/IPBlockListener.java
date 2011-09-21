@@ -40,10 +40,16 @@ public class IPBlockListener extends BlockListener {
 		if (sign.getLine(0).equals("[InfPist]")) {
 			String blockID = sign.getLine(1);
 			String[] chunks = blockID.split(",");
+			int length = event.getLength();
+			if (length == 0) {
+				if (event.getBlock().getRelative(event.getDirection(), 2).getType() != Material.AIR) {
+					event.setCancelled(true);
+				}
+			}
 			if (chunks.length > 1) {
 				String l = sign.getLine(2);
 				int i = 0;
-				if (!this.index.containsKey(event.getBlock())) {
+				if (!this.index.containsKey(event.getBlock())) {	
 					this.index.put(event.getBlock(), 0);
 				}
 				else {
