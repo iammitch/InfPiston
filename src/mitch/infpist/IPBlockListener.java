@@ -44,7 +44,6 @@ public class IPBlockListener extends BlockListener {
 				String l = sign.getLine(2);
 				int i = 0;
 				if (!this.index.containsKey(event.getBlock())) {
-					System.out.println ("No in hashmap");
 					this.index.put(event.getBlock(), 0);
 				}
 				else {
